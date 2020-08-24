@@ -5,6 +5,7 @@
       :key="index" 
       :bgcolor="true"
       :icons="item" 
+      @goPage="goPage(item.linkTo)"
     >
       <span class="today" v-if="item.text==='每日推荐'"></span>
     </icon>
@@ -13,6 +14,7 @@
 <script>
 import {findIcons} from '@/getInfos/getData'
 import icon from '@/components/icon'
+import {indexapi} from '@/api/index'
 export default {
   name:'findIcon',
   data(){
@@ -26,6 +28,29 @@ export default {
   methods: {
     iniData(){
       this.findIcons=findIcons()
+    },
+    goPage(link){
+      if(link==='personalFm'){
+        // 当如果是点击私人Fm时需要做的操作
+        // 获取私人FM信息
+        this._getPersonalFm()
+      }else{
+        this.$router.push(link)
+      }
+    },
+    /**
+     * 播放全部
+     */
+    startPlay(list){
+      this.startPlayAll({
+        list
+      })
+    },
+    _getPersonalFm(){
+      indexapi.personalFm().then(res=>{
+        const list=res
+        this.startPlay(list)
+      })
     }
   },
   created () {

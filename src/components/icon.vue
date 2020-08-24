@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-list" :class="{width}" >
+  <div class="icon-list" :class="{width}" @click="linkTo" >
     <div class="icon" :class="{bgcolor}">
       <i :class="icons.icon"></i>
       <slot></slot>
@@ -19,6 +19,11 @@ export default {
     },
     bgcolor:{
       type:Boolean
+    }
+  },
+  methods:{
+    linkTo(){
+      this.$emit('goPage')
     }
   }
 }

@@ -1,0 +1,19 @@
+export default{
+  loginPage:false,//侧边栏是否显示
+  icontaiyang:false,//日间模式
+  iconyueliang1:true,//夜间模式
+  modeText:'夜',//日间模式文字信息
+  loginState:0,//登录状态，初始值0未登录，登录成功设置1
+  accountUid:0,//存取用户uid
+  load:true,//定义收索展示界面loading图标的展示与否
+  linkPage:'composite',//定义搜索栏展示页的标签导航条应该根据路由信息进行滚动
+  playState:false,//是否正在播放
+  fullScreen:false,//是否是全屏展示播放页
+  audioList:[],//用来展示播放列表项
+  playList:[],//用来存储各种播放模式的列表
+  mode:0,//用来记录当前播放模式0：列表循环，1：单曲单曲循环，2：随机播放
+  audioIngIndex:-1,//正在播放的这一首歌曲索引
+  playingShow:true,//是否显示转盘播放页面
+  offsetLyric:0,//设置歌词偏移
+  level:0//用户等级
+}
